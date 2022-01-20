@@ -7,6 +7,7 @@ import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm';
 import Rank from './Components/Rank/Rank';
 import FaceRecognition from './Components/FaceRecognition/FaceRecognition';
 import Particles from "react-tsparticles";
+import SignIn from './Components/SignIn/SignIn';
 
 
 const app = new Clarifai.App({
@@ -104,6 +105,7 @@ class App extends Component {
       input: '',
       imageUrl: '',
       box: {},
+      route: 'signin'
     }
   }
 
@@ -137,7 +139,9 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-
+  onRouteChange = () => {
+    this.setState({ route: 'home' });
+  }
 
 
   render() {
@@ -150,12 +154,15 @@ class App extends Component {
           options={particleOptions}
         />
         <Navigation />
-        <Logo />
-        <Rank />
-        <ImageLinkForm
-          onInputChange={this.onInputChange}
-          onButtonSubmit={this.onButtonSubmit} />
-        <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
+        {this.state.route === 'signin' ?
+          <SignIn onRouteChange={this.onRouteChange} /> : <div> <Logo />
+            <Rank />
+            <ImageLinkForm
+              onInputChange={this.onInputChange}
+              onButtonSubmit={this.onButtonSubmit} />
+            <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
+          </div>
+        }
       </div>
     );
   }
