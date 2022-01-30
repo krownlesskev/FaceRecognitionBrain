@@ -94,7 +94,7 @@ class App extends Component {
     super();
     this.state = {
       input: '',
-      imageUrl: '',
+      imageUrl: 'https://scontent.fyyc2-1.fna.fbcdn.net/v/t1.6435-9/49259743_340121806601196_1313445305999425536_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=jYWvf7V862UAX_7IAZJ&_nc_ht=scontent.fyyc2-1.fna&oh=00_AT9-jO11oy2D28gPIfbGZjVikR3XpKoKmw5-utFWoCmNtg&oe=6211E630',
       box: {},
       route: 'signin',
       isSignedIn: false,
