@@ -24,6 +24,7 @@ class Register extends React.Component {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify({
                 email: this.state.email,
