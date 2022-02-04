@@ -145,7 +145,8 @@ class App extends Component {
       body: JSON.stringify({
         input: this.state.input
       })
-    }).then(response => response.json())
+    })
+      .then(response => response.json())
       .then(response => {
         if (response) {
           fetch('https://quiet-anchorage-75334.herokuapp.com/image', {
