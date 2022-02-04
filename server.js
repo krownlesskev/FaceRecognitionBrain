@@ -19,7 +19,7 @@ const db = knex({
 });
 
 
-
+app.options('*', cors()) // include before other routes
 app.get('/', (req, res) => { res.send('it is working') })
 app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt) })
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
