@@ -1,5 +1,3 @@
-
-
 const handleRegister = (req, res, db, bcrypt) => {
     const { email, name, password } = req.body;
     if (!email || !name || !password) {
@@ -21,7 +19,7 @@ const handleRegister = (req, res, db, bcrypt) => {
                         name: name,
                         joined: new Date()
                     }).then(user => {
-                        res.status(200).json(user[0])
+                        res.json(user[0])
                     })
             })
             .then(trx.commit)
@@ -31,5 +29,5 @@ const handleRegister = (req, res, db, bcrypt) => {
 }
 
 module.exports = {
-    handleRegister
+    handleRegister: handleRegister
 }
