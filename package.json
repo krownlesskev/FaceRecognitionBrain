@@ -51,5 +51,4 @@
   "devDependencies": {
     "clarifai": "^2.9.1",
     "gh-pages": "^3.2.3"
-  }
-}
+  }}

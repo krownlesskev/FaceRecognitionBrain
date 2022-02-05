@@ -1,4 +1,4 @@
-const handleProfiltGet = (req, res, db) => {
+const handleProfileGet = (req, res, db) => {
     const { id } = req.params;
     db.select('*').from('users').where({ id })
         .then(user => {
@@ -12,5 +12,5 @@ const handleProfiltGet = (req, res, db) => {
 }
 
 module.exports = {
-    handleProfiltGet
+    handleProfileGet
 }

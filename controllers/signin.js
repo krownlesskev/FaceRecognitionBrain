@@ -1,5 +1,5 @@
-const handleSignin = (db, bcrypt) => (req, res) => {
-    const { email, password } = req.body
+const handleSignin = (req, res, db, bcrypt) => {
+    const { email, password } = req.body;
     if (!email || !password) {
         return res.status(400).json('incorrect form submission')
     }
@@ -11,7 +11,7 @@ const handleSignin = (db, bcrypt) => (req, res) => {
                 return db.select('*').from('users')
                     .where('email', '=', email)
                     .then(user => {
-                        res.status(200).json(user[0])
+                        res.json(user[0])
                     })
                     .catch(err => res.status(400).json('unable to get user'))
             } else {
@@ -22,5 +22,5 @@ const handleSignin = (db, bcrypt) => (req, res) => {
 }
 
 module.exports = {
-    handleSignin
+    handleSignin: handleSignin
 }
