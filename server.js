@@ -23,7 +23,9 @@ console.log(process.env.DATABASE_URL);
 const app = express();
 
 app.use(express.json());
-app.use(cors())
+app.use(cors({
+  origin: '*'
+}))
 
 app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt) })
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })

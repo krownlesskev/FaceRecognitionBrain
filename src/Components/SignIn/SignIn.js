@@ -16,16 +16,16 @@ class SignIn extends React.Component {
     }
     onSubmitSignIn = () => {
         fetch('https://quiet-anchorage-75334.herokuapp.com/signin', {
-            method: 'post',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'https://quiet-anchorage-75334.herokuapp.com'
             },
             body: JSON.stringify({
                 email: this.state.signInEmail,
                 password: this.state.signInPassword
             })
-        }).then(response => response.json())
+        }).then(response => console.log(response))
+            .then(response => response.json())
             .then(user => {
                 if (user.id) {
                     this.props.loadUser(user)
