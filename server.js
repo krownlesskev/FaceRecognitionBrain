@@ -28,7 +28,7 @@ app.use(cors(corsOptions))
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send(db.users)
+  res.sendFile(__dirname + '/public/index.html')
 })
 app.post('/signin', signin.handleSignin(db, bcrypt))
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
