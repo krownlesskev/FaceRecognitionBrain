@@ -18,13 +18,15 @@ const db = knex({
   }
 });
 
+const corsOptions = {
+  origin: '*'
+}
+
 console.log(process.env.DATABASE_URL);
 
 const app = express();
 
-app.use(cors({
-  origin: ['http://localhost:3001', 'https://quiet-anchorage-75334.herokuapp.com/'],
-}))
+app.use(cors(corsOptions))
 app.use(express.json());
 
 app.post('/signin', signin.handleSignin(db, bcrypt))

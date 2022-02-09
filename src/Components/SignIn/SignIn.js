@@ -19,7 +19,6 @@ class SignIn extends React.Component {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',
-                'Origin': 'http://localhost:3001,'
             },
             body: JSON.stringify({
                 email: this.state.signInEmail,
@@ -28,7 +27,7 @@ class SignIn extends React.Component {
         })
             .then(response => response.json())
             .then(user => {
-                if (user.id) {
+                if (user) {
                     this.props.loadUser(user)
                     this.props.onRouteChange('home')
                 }
@@ -71,3 +70,5 @@ class SignIn extends React.Component {
 };
 
 export default SignIn;
+
+
