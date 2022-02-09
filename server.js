@@ -22,12 +22,16 @@ console.log(process.env.DATABASE_URL);
 
 const app = express();
 
-app.use(express.json());
 app.use(cors({
-  origin: '*',
-}))
+  Origin: '*',
+  'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+  'Content-Type': 'application/json',
 
-app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt) })
+}))
+app.use(express.json());
+
+app.post('/signin', signin.handleSignin(db, bcrypt))
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db) })
 app.put('/image', (req, res) => { image.handleImage(req, res, db) })

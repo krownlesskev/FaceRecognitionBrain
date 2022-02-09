@@ -16,7 +16,7 @@ class SignIn extends React.Component {
     }
     onSubmitSignIn = () => {
         fetch('https://quiet-anchorage-75334.herokuapp.com/signin', {
-            method: 'POST',
+            method: 'post',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -24,7 +24,8 @@ class SignIn extends React.Component {
                 email: this.state.signInEmail,
                 password: this.state.signInPassword
             })
-        }).then(response => response.json())
+        })
+            .then(response => response.json())
             .then(user => {
                 if (user.id) {
                     this.props.loadUser(user)
