@@ -24,7 +24,9 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-  origin: '*'
+  origin: '*',
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Credentials': true
 }))
 
 app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt) })
