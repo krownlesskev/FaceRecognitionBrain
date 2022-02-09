@@ -11,21 +11,24 @@ const image = require('./controllers/image');
 const db = knex({
   client: 'pg',
   connection: {
-    connectionString: 'process.env.DATABASE_URL',
+    connectionString: process.env.DATABASE_URL,
     ssl: true,
   }
 });
 
 const corsOptions = {
-  origin: '*'
+  origin: '*',
+  credentials: true,
 }
 
 console.log(process.env.DATABASE_URL);
 
 const app = express();
-
-app.use(cors(corsOptions))
 app.use(express.json());
+app.use(cors(corsOptions))
+
+
+
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html')
