@@ -19,6 +19,7 @@ class SignIn extends React.Component {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',
+                'Origin': 'http://localhost:3001,'
             },
             body: JSON.stringify({
                 email: this.state.signInEmail,

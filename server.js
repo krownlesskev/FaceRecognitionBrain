@@ -23,11 +23,7 @@ console.log(process.env.DATABASE_URL);
 const app = express();
 
 app.use(cors({
-  Origin: '*',
-  'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-  'Content-Type': 'application/json',
-
+  origin: ['http://localhost:3001', 'https://quiet-anchorage-75334.herokuapp.com/'],
 }))
 app.use(express.json());
 
