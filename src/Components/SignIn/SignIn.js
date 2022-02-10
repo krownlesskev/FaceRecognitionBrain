@@ -15,7 +15,7 @@ class SignIn extends React.Component {
         this.setState({ signInPassword: event.target.value })
     }
     onSubmitSignIn = () => {
-        fetch('https://quiet-anchorage-75334.herokuapp.com/signin', {
+        fetch('https://powerful-taiga-94821.herokuapp.com/signin', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ class SignIn extends React.Component {
         })
             .then(response => console.log(response.text()))
             .then(user => {
-                if (user) {
+                if (user.id) {
                     this.props.loadUser(user)
                     this.props.onRouteChange('home')
                 }
